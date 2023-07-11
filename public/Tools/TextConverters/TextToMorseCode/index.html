@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Text To Morse Code - A Kewl Website!</title>
+    <meta name="title" content="Text To Morse Code - A Kewl Website!">
+
+		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="charset" content="utf-8" />
+		<meta name="theme-color" content="#6c757d" />
+
+		<meta name="description" content="Convert your text to morse code and back using this fast tool." />
+		<meta name="author" content="Wyatt Da Cheetah" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
+		<meta property="og:title" content="Text To Morse Code - A Kewl Website!" />
+		<meta property="og:description" content="Convert your text to morse code and back using this fast tool." />
+		
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
+		<meta property="twitter:title" content="Text To Morse Code - A Kewl Website!" />
+		<meta property="twitter:description" content="Convert your text to morse code and back using this fast tool." />
+		
+		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
+		<link rel="stylesheet" href="/css/default.css" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="icon" href="127.0.0.1/img/icon.png" type="image/png" sizes="360x360" />
+    <style type="text/css">
+      .lehed {
+        background-image: url( '/img/TCHeader.png' );
+        background-position: right center;
+        background-size: cover;
+        height: 100px;
+      }
+      textarea {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-bottom: 0;
+      }
+
+      @media (max-width:767px) {
+        .row>.col {
+          margin-bottom: 3rem;
+          width: 100vw;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lehed"></div>
+    <main>
+      <div class="Section">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col">
+            <h2 class="text-center pb-3">Text</h2>
+            <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Update(this.value,1)" onkeyup="Update(this.value,1)"></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(0)">Paste</button>
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="text-center pb-3">Morse Code</h2>
+            <textarea class="w-100" id="TextToConvert2" placeholder="Morse Code Here" rows="5" onpaste="Update(this.value,0)" onkeyup="Update(this.value,0)"></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(1)">Paste</button>
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="Section">
+        <h2 class="pb-4 border-bottom">What's Morse Code?</h2>
+        <p>Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes, or dits and dahs. Morse code is named after Samuel Morse, one of the inventors of the telegraph.</p>
+				<i class="mt-5">Source: <a href="https://en.wikipedia.org/wiki/Morse_code/">Wikipedia</a></i>
+      </div>
+    </main>
+    <div class="divider"></div>
+
+    <footer class="Section row row-cols-3 py-3 px-3 mx-0">
+        <p class="col mt-2 text-body-secondary">&copy; 2023 <span title="My kewl name">Wyatt Da Cheetah</span></p>
+        <h1 class="col text-center" title="This is literally the tool name">Text To Morse Code</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><a href="/" class="btn btn-dflt nav-link px-2 text-white">Go To Home</a></li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript">
+      const TextToMorse = {
+        "a": ".-",
+        "b": "-...",
+        "c": "-.-.",
+        "d": "-..",
+        "e": ".",
+        "f": "..-.",
+        "g": "--.",
+        "h": "....",
+        "i": "..",
+        "j": ".---",
+        "k": "-.-",
+        "l": ".-..",
+        "m": "--",
+        "n": "-.",
+        "o": "---",
+        "p": ".--.",
+        "q": "--.-",
+        "r": ".-.",
+        "s": "...",
+        "t": "-",
+        "u": "..-",
+        "v": "...-",
+        "w": ".--",
+        "x": "-..-",
+        "y": "-.--",
+        "z": "--..",
+        "1": ".----",
+        "2": "..---",
+        "3": "...--",
+        "4": "....-",
+        "5": ".....",
+        "6": "-....",
+        "7": "--...",
+        "8": "---..",
+        "9": "----.",
+        "0": "-----",
+        " ": "/"
+      };
+      var MorseToText = {};
+
+      for( let k in TextToMorse )
+          MorseToText[ TextToMorse[ k ] ] = k;
+      window.onload = () => {
+        TextToConvert.value = locS( "TextToConvert" );
+				TextToConvert2.value = locS( "TextToConvert2" );
+      };
+      window.onbeforeunload = () => {
+        locS( "TextToConvert", TextToConvert.value, 1 );
+        locS( "TextToConvert2", TextToConvert2.value, 1 );
+      };
+      function Update( val, ToWhere ) {
+        Output = ToWhere === 0 ? TextToConvert : TextToConvert2;
+        val = ToWhere === 0 ? val.trim().split( ' ' ): val.toLowerCase();
+        var Converted = [];
+
+        for( let i = 0; i < val.length; i++ ) {
+          let ta = ToWhere === 0 ? MorseToText[ val[ i ] ] : TextToMorse[ val[ i ] ];
+          Converted.push( ta ? ta : "?" );
+        }
+        
+        Output.value = Converted.join( ToWhere === 0 ? '' : ' ' );
+      }
+      async function Paste( ToWhere ) {
+        var a = await navigator.clipboard.readText();
+        ( ToWhere === 1 ? TextToConvert2 : TextToConvert ).value = a;
+        Update( a, ToWhere === 0 ? 1 : 0 );
+			}
+      function Copy( TextToCopy ) {
+        navigator.clipboard.writeText( TextToCopy );
+        alert( "Copied to Clipboard!" );
+      }
+    </script>
+  </body>
+</html>

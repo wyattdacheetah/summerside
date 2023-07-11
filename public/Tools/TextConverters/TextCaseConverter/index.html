@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Text Case Converter - A Kewl Website!</title>
+    <meta name="title" content="Text Case Converter - A Kewl Website!">
+
+		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="charset" content="utf-8" />
+		<meta name="theme-color" content="#6c757d" />
+
+		<meta name="description" content="Quickly converts your text to title-case, uppercase, lowercase, and sentence case. You can also randomize the uppercasing of your text to make them look chaotic!" />
+		<meta name="author" content="Wyatt Da Cheetah" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
+		<meta property="og:title" content="Text Case Converter - A Kewl Website!" />
+		<meta property="og:description" content="Quickly converts your text to title-case, uppercase, lowercase, and sentence case. You can also randomize the uppercasing of your text to make them look chaotic!" />
+		
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
+		<meta property="twitter:title" content="Text Case Converter - A Kewl Website!" />
+		<meta property="twitter:description" content="Quickly converts your text to title-case, uppercase, lowercase, and sentence case. You can also randomize the uppercasing of your text to make them look chaotic!" />
+		
+		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
+		<link rel="stylesheet" href="/css/default.css" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="icon" href="%baseurl%/img/icon.png" type="image/png" sizes="360x360" />
+    <style type="text/css">
+      .lehed {
+        background-image: url( '/img/TCHeader.png' );
+        background-position: right center;
+        background-size: cover;
+        height: 100px;
+      }
+      textarea {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-bottom: 0;
+      }
+
+      @media (max-width:767px) {
+        .row>.col {
+          margin-bottom: 3rem;
+          width: 100vw;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lehed"></div>
+    <main>
+      <div class="Section">
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="col">
+            <h2 class="text-center pb-3">To Convert</h2>
+            <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Convert()" onkeyup="Convert()"></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(true)">Paste</button>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="text-center border-bottom pb-4">Case</h2>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="uc" id="rdo-1" />
+              <label class="form-check-label" for="rdo-1">Upper-case</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="lc" id="rdo-2" />
+              <label class="form-check-label" for="rdo-1">Lower-case</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="tc" id="rdo-3" checked />
+              <label class="form-check-label" for="rdo-1">Title case</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="sc" id="rdo-4" />
+              <label class="form-check-label" for="rdo-1">Sentence case</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="ic" id="rdo-5" />
+              <label class="form-check-label" for="rdo-5">Invert case</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input mx-5" name="CaseType" onclick="Convert()" value="rd" id="rdo-6" />
+              <label class="form-check-label" for="rdo-5">Randomize Case</label>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="text-center pb-3">Converted Output</h2>
+            <textarea class="w-100" id="TextToConvert2" placeholder="Output will be shown here" rows="5" readonly></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy To Clipboard</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="divider"></div>
+
+    <footer class="Section row row-cols-3 py-3 px-3 mx-0">
+        <p class="col mt-2 text-body-secondary">&copy; 2023 <span title="My kewl name">Wyatt Da Cheetah</span></p>
+        <h1 class="col text-center" title="This is literally the tool name">Text Case Converter</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><a href="/" class="btn btn-dflt nav-link px-2 text-white">Go To Home</a></li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript">
+      window.onload = () => {
+        TextToConvert.value = locS( "TextToConvert" );
+				TextToConvert2.value = locS( "TextToConvert2" );
+        for( let i = 1; i <= 6; i++ ) {
+          id( "rdo-" + i ).checked = locS( "rdo-" + i ) == "true";
+        }
+      };
+      window.onbeforeunload = () => {
+        locS( "TextToConvert", TextToConvert.value, 1 );
+        locS( "TextToConvert2", TextToConvert2.value, 1 );
+        for( let i = 1; i <= 6; i++ ) {
+          locS( "rdo-" + i, id( "rdo-" + i ).checked, 1 );
+        }
+      };
+
+      function Convert() {
+        var m = document.getElementsByName( "CaseType" );
+        for( let i = 0; i < m.length; i++ )
+          if ( m[ i ].checked ) {
+            m = m[ i ].value;
+            break;
+          }
+        var ret = TextToConvert.value;
+        switch( m ) {
+          case "uc":
+            ret = ret.toUpperCase();
+            break;
+          case "lc":
+            ret = ret.toLowerCase();
+            break;
+          case "tc":
+            ret = ToTitleCase( ret );
+            break;
+          case "sc":
+            ret = ToSentenceCase( ret );
+            break;
+          case "ic":
+            ret = ((str) => str.split('').map(c => c == c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(""))(ret);
+            break;
+          case "rd":
+            ret = ((str)=>{
+              let r = "";
+              for( let c = 0; c < str.length; c++ )
+                r += Math.floor( Math.random() * 2 ) == 0 ? str[ c ].toLowerCase() : str[ c ].toUpperCase();
+              return r;
+            })( ret );
+        }
+        TextToConvert2.value = ret;
+      }
+      async function Paste() {
+        var a = await navigator.clipboard.readText();
+        TextToConvert.value = a;
+        Update();
+			}
+      function Copy( TextToCopy ) {
+        navigator.clipboard.writeText( TextToCopy );
+        alert( "Copied to Clipboard!" );
+      }
+
+      function ToTitleCase( str ) {
+        const exceptions = [ "a", "an", "the", "and", "but", "or", "nor", "for", "yet", "so", "at", "by", "in", "into", "near", "of", "on", "to", "with" ];
+        return str.replace( /\w\S*/g, ( Text, Offset ) => {
+          if ( Offset !== 0 && exceptions.includes( Text.toLowerCase() ) )
+            return Text.toLowerCase();
+          return Text.charAt( 0 ).toUpperCase() + Text.substr( 1 ).toLowerCase();
+        });
+      }
+      function ToSentenceCase( ToConv ) {
+        var WOWDS = ToConv.toLowerCase().split(" ");
+
+        WOWDS[ 0 ] = WOWDS[ 0 ].charAt( 0 ).toUpperCase() + WOWDS[ 0 ].slice( 1 );
+
+        for ( let i = 1; i < WOWDS.length; i++ ) {
+          if ( [ "a", "an", "the", "and", "but", "or", "nor", "for", "yet", "so", "at", "by", "in", "into", "near", "of", "on", "to", "with" ].includes( WOWDS[ i ] ) && !WOWDS[ i - 1 ].endsWith( "." ) )
+            continue;
+
+          WOWDS[i] = WOWDS[i].charAt(0).toUpperCase() + WOWDS[i].slice(1);
+        }
+
+        return WOWDS.join(" ");
+      }
+    </script>
+  </body>
+</html>

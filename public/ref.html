@@ -1,0 +1,499 @@
+<html lang="en-US">
+	<head>
+		<title>Home - Kewl Site!</title>
+		<meta name="title" content="Home - Kewl Site!">
+
+		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="charset" content="utf-8" />
+		<meta name="theme-color" content="#6c757d" />
+
+		<meta name="description" content="Hey! Here you can find FREE useful tools that you might be looking for! This website is pretty simple too, and the ads? They're minimal!" />
+		<meta name="author" content="Wyatt Da Cheetah" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://wyatt-da-cheetah.glitch.me/" />
+		<meta property="og:title" content="Home - Kewl Site!" />
+		<meta property="og:description" content="Hey! Here you can find FREE useful tools that you might be looking for! This website is pretty simple too, and the ads? They're minimal!" />
+		<meta property="og:image" content="https://cdn.glitch.global/2f819964-a278-4e35-b917-86e5a8f967c8/By%20Wyatt%20Da%20Cheetah!.jpg?v=1682925290337" />
+		
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://wyatt-da-cheetah.glitch.me/" />
+		<meta property="twitter:title" content="Home - Kewl Site!" />
+		<meta property="twitter:description" content="Hey! Here you can find FREE useful tools that you might be looking for! This website is pretty simple too, and the ads? They're minimal!" />
+		<meta property="twitter:image" content="https://cdn.glitch.global/2f819964-a278-4e35-b917-86e5a8f967c8/By%20Wyatt%20Da%20Cheetah!.jpg?v=1682925290337" />
+		
+		<link rel="stylesheet" href="FontAwesome6.4/css/all.css" />
+		<link rel="stylesheet" href="css/default.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="icon" href="https://cdn.glitch.global/2f819964-a278-4e35-b917-86e5a8f967c8/Go.png?v=1682925280461" type="image/png" sizes="320x320" />
+		<style type="text/css">
+			.feature-icon-small {
+			width: 3rem;
+			height: 3rem;
+			}
+			.ComingSoonCover {
+			top: 0;
+			left: 0;
+			background-color: rgba( 0, 0, 0, .7 );
+			backdrop-filter: blur( 5px );
+			color: white;
+			}
+			.bi {
+			background-color: white;
+			color: var(--bs-primary);
+			width: 3rem;
+			height: 3rem;
+			border-radius: .5rem;
+			font-size: 1.5rem;
+			}
+			#Main {
+				margin: 5rem;
+				box-shadow: 2px 2px 5px grey;
+				border-radius: 10px;
+			}
+			.col.d-flex.align-items-start.apptype:hover {
+				box-shadow: 2px 2px 5px black;
+			}
+			.col.d-flex.align-items-start.apptype {
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+				margin: 0;
+				color: white;
+			}
+			@media (max-width:560px) {
+				#Main {
+					margin: 0px;
+					box-shadow: none;
+				}
+				div.col.d-flex.flex-column.gap-2 {
+					margin-bottom: 3rem;
+				}
+			}
+		</style>
+	</head>
+	<body class="bg-somewhat-dark d-flex flex-column vh-100">
+		<nav id="TheNavbar" class="navbar navbar-dark bg-super-dark px-3 d-flex justify-content-center">
+			<ul class="nav nav-pills">
+				<li class="nav-item"><a class="nav-link active" href="#Main">Main</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tools</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#WhatKindsOfToolsAreThere">What Kinds of Tools are There?</a></li>
+						<li><a class="dropdown-item" href="#WhyChooseThisSite">Why Choose This Site?</a></li>
+						<li class="dropdown-divider"></li>
+						<li><a class="dropdown-header" href="#TextConverters">Text Converters</a></li>
+						<li><a class="dropdown-item" href="Tools/TextConverters/TextToMorseCode/">Text To Morse Code</a></li>
+						<li><a class="dropdown-item" href="Tools/TextConverters/TextToBase64/">Text To Base64</a></li>
+						<li><a class="dropdown-item" href="Tools/TextConverters/TextToBinary/">Text To Binary</a></li>
+						<li><a class="dropdown-item" href="Tools/TextConverters/TextToHexCode/">Text To Hex Code</a></li>
+						<li><a class="dropdown-item" href="Tools/TextConverters/TextToASCIICode/">Text To ASCII Code</a></li>
+						<li class="dropdown-divider"></li>
+						<li><a class="dropdown-header d-none d-md-block" href="#ImageTools" disabled>Image Tools</a></li>
+						<li><a class="dropdown-item d-none d-md-block" href="Tools/ImageTools/Resizer/" disabled>Resizer</a></li>
+						<li><a class="dropdown-item d-none d-md-block" href="Tools/ImageTools/Editor/" disabled>Editor</a></li>
+						<li class="dropdown-divider"></li>
+						<li><a class="dropdown-header d-none d-md-block" href="#TestingTools" disabled>Testing Tools</a></li>
+						<li><a class="dropdown-item d-none d-md-block" href="Tools/TestingTools/DiscordWebhook/" disabled>Discord Webhook Tester</a></li>
+						<li><a class="dropdown-item d-none d-md-block" href="Tools/TestingTools/JavascriptRunne/" disabled>Javascript Runner</a></li>
+						<li class="dropdown-divider"></li>
+						<li><a class="dropdown-header" href="#MaliciousTools">Malicious Tools</a></li>
+						<li><a class="dropdown-item" href="Tools/Malicious/MarkdownToHtml/">Markdown To Html</a></li>
+						<li><a class="dropdown-item" href="Tools/Malicious/TextToSpeech/">Text To Speech</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#About">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="#AboutMe">About (The Creator)</a></li>
+			</ul>
+		</nav>
+
+		<div class="divider"></div>
+
+		<main style="overflow: hidden scroll;height:300px" class="flex-grow-1" data-bs-spy="scroll" data-bs-target="#TheNavbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+			<div id="Main" class="Section">
+				<h1 class="pb-2 border-bottom mb-3">Main</h1>
+				<p class="mb-5">In simple words, this site is multipurpose.</p>
+				
+				<i>You can skip through the sections by using the navbar above. If you want a more detailed explanation of the purpose of this site, go to the <a href="#About">About Section</a>.</i>
+			</div>
+
+			<div class="divider"></div>
+
+			<div class="Section" id="WhatKindsOfToolsAreThere">
+				<h2 class="pb-2 border-bottom">What Kinds of Tools are There?</h2>
+				<p>There are currently <i>three</i> types to choose from, but I'm still planning to add more in the meantime!</p>
+				<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+					<div class="col d-flex align-items-start apptype">
+						<div class="icon-square text-body-emphasis bg-body-secondary me-3">
+							<div class="bi d-flex justify-content-center align-items-center">
+								<i class="fa-solid fa-t"></i>
+							</div>
+						</div>
+						<div>
+							<h3 class="fs-2">Text Converters</h3>
+							<p>Simple text converter tools.</p>
+							<a href="#TextConverters" class="btn btn-outlined">Click to view!</a>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start apptype">
+						<div class="icon-square text-body-emphasis bg-body-secondary me-3">
+							<div class="bi d-flex justify-content-center align-items-center">
+								<i class="fa fa-image"></i>
+							</div>
+						</div>
+						<div>
+							<h3 class="fs-2">Image Tools</h3>
+							<p>Simple image tools, like for converting from one format to another and resizing them.</p>
+							<a href="#ImageTools" class="btn btn-outlined">Click to view!</a>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start apptype">
+						<div class="icon-square text-body-emphasis bg-body-secondary me-3">
+							<div class="bi d-flex justify-content-center align-items-center">
+								<i class="fa fa-tools"></i>
+							</div>
+						</div>
+						<div>
+							<h3 class="fs-2">Testing Tools</h3>
+							<p>Test your stuff using the tools here, like websockets, check if a url is reachable, or even discord bots.</p>
+							<a href="#TestingTools" class="btn btn-outlined">Click to view!</a>
+						</div>
+					</div>
+					<div class="col d-flex align-items-start apptype">
+						<div class="icon-square text-body-emphasis bg-body-secondary me-3">
+							<div class="bi d-flex justify-content-center align-items-center">
+								<i class="fa fa-toolbox"></i>
+							</div>
+						</div>
+						<div>
+							<h3 class="fs-2">Malicious Tools</h3>
+							<p>Maybe you want something else, so here's some malicious tools that you may find interesting!</p>
+							<a href="#MaliciousTools" class="btn btn-outlined">Click to view!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider">
+				<!--Ad_Divider-->
+			</div>
+
+			<div id="WhyChooseThisSite" class="Section">
+				<div class="row row-cols-1 row-cols-md-2">
+					<h2 class="mb-5">Why Choose this Site?</h2>
+					<i>One of the reasons is that it's designed for quick use; you're only reading this right now because you chose to. Another reason is that the ads displayed on this site aren't going to interfear with your work.</i>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+			<div id="TextConverters" class="Section">
+				<h2 class="pb-2 border-bottom">Text Converters</h2>
+				<div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-5 py-5">
+					<div class="col d-flex flex-column align-items-start gap-2 d-none d-md-block">
+						<h3 class="fw-bold">Some useful tools for text conversion</h3>
+						<p class="text-body-secondary">Here are all of the available text conversion tools on this site. It ranges from translators/converters to encoders and decoders.</p>
+					</div>
+					<div class="col">
+						<div class="row row-cols-1 row-cols-sm-2 g-4">
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To Morse Code</h4>
+								<p class="text-body-secondary">Convert your text to morse code using this simple tool, you can also use it to decode/translate morse code.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/TextConverters/TextToMorseCode/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To Base64</h4>
+								<p class="text-body-secondary">Simple text encoder that uses base64 encoding, it can also decode your base64 encoded text.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/TextConverters/TextToBase64/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To Binary</h4>
+								<p class="text-body-secondary">Binary is just a bunch of 1s and 0s. If you ever want to convert some text to binary and back, should should use this simple tool.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/TextConverters/TextToBinary/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To Hex Code</h4>
+								<p class="text-body-secondary">Convert your text to hex code and back.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/TextConverters/TextToHexCode/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To ASCII Code</h4>
+								<p class="text-body-secondary">Convert your text into ASCII Code and back.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/TextConverters/TextToASCIICode/">Go To Tool</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider">
+				<!--Ad_Divider-->
+			</div>
+
+			<div id="ImageTools" class="Section position-relative w-100 d-none d-md-block">
+				<div class="mx-4 px-4 py-5">
+					<h2 class="pb-2 border-bottom">Image Tools</h2>
+					<div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-5 py-5">
+						<div class="col d-flex flex-column align-items-start gap-2 d-none d-md-block">
+							<h3 class="fw-bold">The most simplest of all the tools I've ever made</h3>
+							<p class="text-body-secondary">You can resize, convert, and add filters to your images using the tools here</p>
+						</div>
+						<div class="col">
+							<div class="row row-cols-1 row-cols-sm-2 g-4">
+								<div class="col d-flex flex-column gap-2">
+									<h4 class="fw-semibold mb-3">Image Resizer</h4>
+									<p class="text-body-secondary">Resize your image to another resolution, it's kinda like downscalling or upscaling a photo.</p>
+									<a class="btn btn-outlined btn-fit-content" href="Tools/Image/Resizer/">Go To Tool</a>
+								</div>
+								<div class="col d-flex flex-column gap-2">
+									<h4 class="fw-semibold mb-3">Image Editor</h4>
+									<p class="text-body-secondary">A simple image editor that supports cropping and adding filters to your photos.</p>
+									<a class="btn btn-outlined btn-fit-content" href="Tools/Image/Editor/">Go To Tool</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ComingSoonCover mx-0 my-0 h-100 position-absolute d-flex align-items-center justify-content-center" style="width:inherit">
+					<div>
+						<h2 class="border-bottom text-white	" style="text-shadow:0px 2px 5px black">Coming Soon!</h2>
+						<p>The tools here aren't finished yet! But don't worry, I'm actively making them and it'll be done in no time!</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider d-none d-md-block"></div>
+
+			<div id="TestingTools" class="Section position-relative w-100 d-none d-md-block">
+				<h2 class="pb-2 border-bottom">Testing Tools</h2>
+				<div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-5 py-5">
+					<div class="col d-flex flex-column align-items-start gap-2 d-none d-md-block">
+						<h3 class="fw-bold">Here we go, TESTING TOOLS</h3>
+						<p class="text-body-secondary">Sometimes, you want to make sure that something is working properly. What's the best way to do that? Well, it's by using testing tools!</p>
+					</div>
+					<div class="col">
+						<div class="row row-cols-1 row-cols-sm-2 g-4">
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3"> Simple Web Socket Tester</h4>
+								<p class="text-body-secondary">You can connect and send messages to your websocket server with ease!</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/Testing/SimpleWebSocketTester/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Discord Webhook Tester</h4>
+								<p class="text-body-secondary">Send messages using your discord webhook. You can set its profile picture, name, and if it's going to be sending a tts message. You can also send files!</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/Testing/DiscordWebhook/">Go To Tool</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ComingSoonCover mx-0 my-0 h-100 position-absolute d-flex align-items-center justify-content-center" style="width:inherit">
+					<div>
+						<h2 class="border-bottom" style="text-shadow:0px 2px 5px black">Coming Soon!</h2>
+						<p>The tools here aren't finished yet! But don't worry, I'm actively making them and it'll be done in no time!</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider d-none d-md-block">
+				<!--Ad_Divider-->
+			</div>
+
+      <div id="MaliciousTools" class="Section">
+			  <h2 class="pb-2 border-bottom">Malicious Tools</h2>
+				<div class="row row-cols-1 row-cols-lg-2 align-items-md-center g-5 py-5">
+					<div class="col d-flex flex-column align-items-start gap-2 d-none d-md-block">
+						<h3 class="fw-bold">Looking for something else? I got you covered!</h3>
+						<p class="text-body-secondary">Maybe you want something else, so here's some malicious tools that you may find interesting!</p>
+					</div>
+					<div class="col">
+						<div class="row row-cols-1 row-cols-sm-2 g-4">
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Markdown To Html</h4>
+								<p class="text-body-secondary">Easily convert your markdown code (.md) to HTML (.html) for free! You can also upload your markdown code and then convert that to html; It's also possible to download the output html or temporarly host it on this website.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/Malicious/MarkdownToHtml/">Go To Tool</a>
+							</div>
+							<div class="col d-flex flex-column gap-2">
+								<h4 class="fw-semibold mb-3">Text To Speech</h4>
+								<p class="text-body-secondary">Make your device speak your prompt using speech synthesis. Control the voice's pitch, speed, and volume using this simple tool.</p>
+								<a class="btn btn-outlined btn-fit-content" href="Tools/Malicious/TextToSpeech/">Go To Tool</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+			<div id="About" class="Section">
+				<h2 class="pb-2 border-bottom">About</h2>
+				<p>This site was made for hosting tools and also the photos I take with my camera from time to time. It also serves as an alternative source of income (not that much tho).</p>
+				<p>I get a little income from this site everytime someone visits and loads an ad. There aren't any pop-up ads on this site, only banner ads. And to avoid confusion between the ad and the website, I made sure to surround the ad with a dashed border.</p>
+				<b>Here's an example of an ad: <i>(I definitely didn't sneak this in)</i></b><br/>
+
+				<!--Ad_300x250-->
+
+				<p>This site has <i>a lot</i> of purposes, there are multiple tools and other things that you can use. In future updates, there will be more tools.</p>
+			</div>
+
+			<div class="divider"></div>
+
+			<div id="AboutMe" class="Section">
+				<h2 class="text-center border-bottom" style="font-family: 'Courier New', Courier, monospace">"Wyatt Da Cheetah"</h2>
+				<i>Hey! I'm a programmer, I've been programming for about 3 years</i>
+				
+				<h2 class="text-center my-5">Programming-related things that I know</h2>
+				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+					<div class="col">
+						<h3 class="my-5">Programming Languages</h3>
+						
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>Javascript</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Javascript" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-100"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>PHP</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in PHP" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary" style="width:90%"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>Java</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Java" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primery w-75"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>Python</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Python" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primery" style="width:60%"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>C/C++</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in C/C++" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primery w-50"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h3 class="my-5">Markup Languages</h3>
+						
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>HTML</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in HTML" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-100"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>Markdown</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Markdown" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-100"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h3 class="my-5">Javascript Frameworks</h3>
+						
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>Node.JS</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Node.JS" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-75"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h3 class="my-5">Database Systems</h3>
+						
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>MySQL</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Javascript" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-75"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>MariaDB</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Javascript" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-75"></div>
+								</div>
+							</div>
+						</div>
+						<div class="container row row-cols-2">
+							<div class="col text-center">
+								<h3>SQLite</h3>
+							</div>
+							<div class="col">
+								<div class="progress" role="progressbar" label="My knowledge in Javascript" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="margin-top:0.7rem">
+									<div class="progress-bar bg-primary w-75"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h3 class="my-5">Other things</h3>
+						<ul>
+							<li class="h4" style="font-weight:normal">I've made countless projects in my previous years.</li>
+							<li class="h4" style="font-weight:normal">I've made a few (&gt;10) projects with ESP8266.</li>
+							<li class="h4" style="font-weight:normal">I specialize in both front-end and back-end (But preferably, back-end)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="divider">
+				<!--Ad_Divider-->
+			</div>
+	
+			<footer class="bg-super-dark d-flex flex-wrap justify-content-between align-items-center py-3 px-3">
+				<p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Wyatt Da Cheetah</p>
+				<ul class="nav justify-content-end">
+					<li class="nav-item"><a href="#Main" class="nav-link px-2 text-body-secondary">Back to Top</a></li>
+					<li class="nav-item"><a href="https://instagram.com/wy4tt_v.ch33tah_/" target="_blank" class="nav-link px-2 text-body-secondary">Instagram</a></li>
+					<li class="nav-item"><a href="https://youtube.com/@WyattCheetah/" target="_blank" class="nav-link px-2 text-body-secondary">Youtube</a></li>
+					<li class="nav-item"><a href="https://github.com/wyattdacheetah/" target="_blank" class="nav-link px-2 text-body-secondary">Github</a></li>
+				</ul>
+			</footer>
+		</main>
+		<script src="js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

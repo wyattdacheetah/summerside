@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Text To Base64 - A Kewl Website!</title>
+    <meta name="title" content="Text To Base64 - A Kewl Website!">
+
+		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="charset" content="utf-8" />
+		<meta name="theme-color" content="#6c757d" />
+
+		<meta name="description" content="Maybe you needed a tool to encode your text to base64, so here you go!" />
+		<meta name="author" content="Wyatt Da Cheetah" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
+		<meta property="og:title" content="Text To Base64 - A Kewl Website!" />
+		<meta property="og:description" content="Maybe you needed a tool to encode your text to base64, so here you go!" />
+		
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
+		<meta property="twitter:title" content="Text To Base64 - A Kewl Website!" />
+		<meta property="twitter:description" content="Maybe you needed a tool to encode your text to base64, so here you go!" />
+		
+		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
+		<link rel="stylesheet" href="/css/default.css" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="icon" href="127.0.0.1/img/icon.png" type="image/png" sizes="360x360" />
+    <style type="text/css">
+      .lehed {
+        background-image: url( '/img/TCHeader.png' );
+        background-position: right center;
+        background-size: cover;
+        height: 100px;
+      }
+      textarea {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-bottom: 0;
+      }
+
+      @media (max-width:767px) {
+        .row>.col {
+          margin-bottom: 3rem;
+          width: 100vw;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lehed"></div>
+    <main>
+      <div class="Section">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col">
+            <h2 class="text-center pb-3">Text</h2>
+            <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Update(true)" onkeyup="Update(true)"></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(true)">Paste</button>
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="text-center pb-3">Base64</h2>
+            <textarea class="w-100" id="TextToConvert2" placeholder="Base64 Here" rows="5" onpaste="Update(false)" onkeyup="Update(false)"></textarea>
+            <div class="btn-group display-inline-block w-100" role="group">
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(false)">Paste</button>
+              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
+            </div>
+          </div>
+        </div>
+        <hr/>
+        <b id="Info"></b>
+      </div>
+      <div class="divider"></div>
+      <div class="Section">
+        <h2 class="pb-4 border-bottom">What's Base64?</h2>
+        <p>In computer programming, Base64 is a group of binary-to-text encoding schemes that represent binary data (more specifically, a sequence of 8-bit bytes) in sequences of 24 bits that can be represented by four 6-bit Base64 digits.</p>
+        <i class="mt-5">Source: <a href="https://en.wikipedia.org/wiki/Base64">Wikipedia</a></i>
+      </div>
+    </main>
+    <div class="divider"></div>
+
+    <footer class="Section row row-cols-3 py-3 px-3 mx-0">
+        <p class="col mt-2 text-body-secondary">&copy; 2023 <span title="My kewl name">Wyatt Da Cheetah</span></p>
+        <h1 class="col text-center" title="This is literally the tool name">Text To Base64</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><a href="/" class="btn btn-dflt nav-link px-2 text-white">Go To Home</a></li>
+        </ul>
+    </footer>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript">
+      window.onload = () => {
+        TextToConvert.value = locS( "TextToConvert" );
+				TextToConvert2.value = locS( "TextToConvert2" );
+      };
+      window.onbeforeunload = () => {
+        locS( "TextToConvert", TextToConvert.value, 1 );
+        locS( "TextToConvert2", TextToConvert2.value, 1 );
+      };
+
+      function Update( IsText ) {
+        InputElement = IsText ? TextToConvert : TextToConvert2;
+        OutputElement = !IsText ? TextToConvert : TextToConvert2;
+
+        try {
+          OutputElement.value = ( IsText ? btoa : atob )( InputElement.value );
+          Info.innerHTML = "";
+        } catch( e ) {
+          Info.innerHTML = "Can't convert!";
+          console.error( e );
+        }
+      }
+      async function Paste( IsText ) {
+        var a = await navigator.clipboard.readText();
+        ( IsText ? TextToConvert : TextToConvert2 ).value = a;
+        Update( IsText );
+			}
+      function Copy( TextToCopy ) {
+        navigator.clipboard.writeText( TextToCopy );
+        alert( "Copied to Clipboard!" );
+      }
+    </script>
+  </body>
+</html>
