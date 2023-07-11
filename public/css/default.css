@@ -58,3 +58,14 @@ textarea {
     border-top-right-radius: 0 !important;
     transform: translateY(-6px);
 }
+
+.hovering.bg-tc {
+    background-image: url( '/img/ToolBG.png' );
+    background-position: center bottom;
+    background-size: cover;
+}
+.hovering.bg-dabg {
+    background-image: url( '/img/AppBG.png' );
+    background-position: center center;
+    background-size: cover;
+}
