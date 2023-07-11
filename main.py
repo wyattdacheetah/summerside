@@ -27,7 +27,11 @@ class HttpHandler( BaseHTTPRequestHandler ):
             url = url[ :url.index( '?' ) ]
 
         try:
-            if url.startswith( 'public/api/' ):
+            if self.path.startswith( '/api/' ):
+                url = self.path[ 1: ]
+                if '?' in url:
+                    url = url[ :url.index( '?' ) ]
+                
                 return HandleAPI( self, url )
             
             if not isdir( url ):
