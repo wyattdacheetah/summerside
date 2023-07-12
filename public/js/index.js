@@ -4,8 +4,11 @@ window.onload = async () => {
     'What are the odds of you visiting this site??',
     'Thanks for visiting this website!',
     'Go ahead, choose a tool and use it right away!',
-    'Did you know that this changes?? I think so.'
+    'Did you know that this changes?? I think so.',
+    'Hai lo!! Wassup??',
+    'Wanna be friends?? Contact me on my discord!!'
   ];
+  let ToWrite;
   num = 0;
 
   while( true ) {

@@ -86,6 +86,12 @@ pre {
     overflow-x: scroll;
 }
 
+footer {
+    background-image: url( '/img/TopThing.png' );
+    background-position: center center;
+    background-size: cover contain;
+}
+
 .violet {
     color: #4900b7;
 }

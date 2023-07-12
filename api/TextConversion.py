@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from utils import ParseUrl, EndResponse
 import json
+import base64
 
 def HandleConversion( self, Thing ):
     SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'Base64', 'text' ]
@@ -56,13 +57,17 @@ def ConvertTo( What, Method, extras = '' ):
         }
         MorseText = [ MorseCodeDict.get( c.upper(), '' ) for c in ToConvert ]
         return ' '.join( MorseText )
+    
+    def ToBase64( ToConvert ):
+        return base64.b64encode( ToConvert.encode( 'ascii' ) ).decode( 'ascii' )
 
     return {
         'BinaryCode': ToBinary,
         'HexCode': ToHexCode,
         'ASCIICode': ToASCIICode,
-        'MorseCode': ToMorseCode
-        # TODO: Implement Base64 and CaseConvert
+        'MorseCode': ToMorseCode,
+        'Base64': ToBase64
+        # TODO: Implement CaseConvert
     }[ Method ]( What )
 
 def ConvertFrom( What, Method ):
@@ -92,12 +97,16 @@ def ConvertFrom( What, Method ):
         Text = "".join( MorseCodeDict.get( morse, "" ) for morse in MorseText )
         return Text
 
+    def FromBase64( ToConvert ):
+        return base64.b64decode( ToConvert.encode( 'ascii' ) ).decode( 'ascii' )
+    
     return {
         'BinaryCode': FromBinary,
         'HexCode': FromHexCode,
         'ASCIICode': FromASCIICode,
-        'MorseCode': FromMorseCode
-        # TODO: Implement Base64 and CaseConvert
+        'MorseCode': FromMorseCode,
+        'Base64': FromBase64
+        # TODO: Implement CaseConvert
     }[ Method ]( What )
 
 
