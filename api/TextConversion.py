@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import base64
-
 from urllib.parse import urlparse, parse_qs
 
 def ParseUrl( url ):
@@ -25,7 +24,7 @@ def EndResponse( thingy, Response, ResponseCode: int = 200, MimeType: str = 'tex
     thingy.send_header( 'Content-Type',  MimeType )
     thingy.end_headers()
     thingy.wfile.write( Response )
-    
+
 def HandleConversion( self, Thing ):
     SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'Base64', 'text' ]
 
@@ -133,7 +132,7 @@ def ConvertFrom( What, Method ):
     }[ Method ]( What )
 
 
-class HttpHandler( BaseHTTPRequestHandler ):
+class handler( BaseHTTPRequestHandler ):
     def do_GET( self ):
         Params = ParseUrl( self.path )
         HandleConversion( self, Params )

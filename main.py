@@ -12,7 +12,7 @@ def HandleAPI( self, filename ):
         module = importlib.util.module_from_spec( spec )
         spec.loader.exec_module( module )
 
-        handler = module.HttpHandler
+        handler = module.handler
         handler.do_GET( self )
     except FileNotFoundError:
         self.send_response( 404 )
