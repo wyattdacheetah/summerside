@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Text To Base64 - A Kewl Website!</title>
-    <meta name="title" content="Text To Base64 - A Kewl Website!">
+    <title>Text To Base64 - Summer Side</title>
+    <meta name="title" content="Text To Base64 - Summer Side">
 
 		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
 		<meta name="viewport" content="width=device-width" />
@@ -14,12 +14,12 @@
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
-		<meta property="og:title" content="Text To Base64 - A Kewl Website!" />
+		<meta property="og:title" content="Text To Base64 - Summer Side" />
 		<meta property="og:description" content="Maybe you needed a tool to encode your text to base64, so here you go!" />
 		
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToHexCode/" />
-		<meta property="twitter:title" content="Text To Base64 - A Kewl Website!" />
+		<meta property="twitter:title" content="Text To Base64 - Summer Side" />
 		<meta property="twitter:description" content="Maybe you needed a tool to encode your text to base64, so here you go!" />
 		
 		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
@@ -57,16 +57,16 @@
             <h2 class="text-center pb-3">Text</h2>
             <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Update(true)" onkeyup="Update(true)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(true)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(true)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
             </div>
           </div>
           <div class="col">
             <h2 class="text-center pb-3">Base64</h2>
             <textarea class="w-100" id="TextToConvert2" placeholder="Base64 Here" rows="5" onpaste="Update(false)" onkeyup="Update(false)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(false)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(false)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
             </div>
           </div>
         </div>
@@ -78,6 +78,10 @@
         <h2 class="pb-4 border-bottom">What's Base64?</h2>
         <p>In computer programming, Base64 is a group of binary-to-text encoding schemes that represent binary data (more specifically, a sequence of 8-bit bytes) in sequences of 24 bits that can be represented by four 6-bit Base64 digits.</p>
         <i class="mt-5">Source: <a href="https://en.wikipedia.org/wiki/Base64">Wikipedia</a></i>
+
+        <h2 class="pb-4 mt-5 border-bottom">API Equivalent</h2>
+        <pre><b class="violet">GET</b> <span id="APIEquiv">https://summerside.vercel.app/api/TextConversion?text=&to=</span></pre>
+        <p><b>Info!</b> if you want to keep your conversion "hidden" or if you need to convert some large text, you can send a <b>POST</b> request instead!!</p>
       </div>
     </main>
     <div class="divider"></div>
@@ -107,6 +111,7 @@
         try {
           OutputElement.value = ( IsText ? btoa : atob )( InputElement.value );
           Info.innerHTML = "";
+          APIEquiv.innerHTML = 'https://summerside.vercel.app/api/TextConversion.py?text=' + encodeURIComponent( InputElement.value ) + ( IsText == 0 ? '&from=Base64' : '' ) + ( IsText == 1 ? '&to=Base64' : '' );
         } catch( e ) {
           Info.innerHTML = "Can't convert!";
           console.error( e );

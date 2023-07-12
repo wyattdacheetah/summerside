@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Text To Morse Code - A Kewl Website!</title>
-    <meta name="title" content="Text To Morse Code - A Kewl Website!">
+    <title>Text To Morse Code - Summer Side</title>
+    <meta name="title" content="Text To Morse Code - Summer Side">
 
 		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
 		<meta name="viewport" content="width=device-width" />
@@ -14,12 +14,12 @@
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
-		<meta property="og:title" content="Text To Morse Code - A Kewl Website!" />
+		<meta property="og:title" content="Text To Morse Code - Summer Side" />
 		<meta property="og:description" content="Convert your text to morse code and back using this fast tool." />
 		
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
-		<meta property="twitter:title" content="Text To Morse Code - A Kewl Website!" />
+		<meta property="twitter:title" content="Text To Morse Code - Summer Side" />
 		<meta property="twitter:description" content="Convert your text to morse code and back using this fast tool." />
 		
 		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
@@ -57,16 +57,16 @@
             <h2 class="text-center pb-3">Text</h2>
             <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Update(this.value,1)" onkeyup="Update(this.value,1)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(0)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(0)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
             </div>
           </div>
           <div class="col">
             <h2 class="text-center pb-3">Morse Code</h2>
             <textarea class="w-100" id="TextToConvert2" placeholder="Morse Code Here" rows="5" onpaste="Update(this.value,0)" onkeyup="Update(this.value,0)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(1)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(1)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
             </div>
           </div>
         </div>
@@ -76,6 +76,10 @@
         <h2 class="pb-4 border-bottom">What's Morse Code?</h2>
         <p>Morse code is a method used in telecommunication to encode text characters as standardized sequences of two different signal durations, called dots and dashes, or dits and dahs. Morse code is named after Samuel Morse, one of the inventors of the telegraph.</p>
 				<i class="mt-5">Source: <a href="https://en.wikipedia.org/wiki/Morse_code/">Wikipedia</a></i>
+        
+        <h2 class="pb-4 mt-5 border-bottom">API Equivalent</h2>
+        <pre><b class="violet">GET</b> <span id="APIEquiv">https://summerside.vercel.app/api/TextConversion?text=&to=</span></pre>
+        <p><b>Info!</b> if you want to keep your conversion "hidden" or if you need to convert some large text, you can send a <b>POST</b> request instead!!</p>
       </div>
     </main>
     <div class="divider"></div>
@@ -151,6 +155,8 @@
         }
         
         Output.value = Converted.join( ToWhere === 0 ? '' : ' ' );
+
+        APIEquiv.innerHTML = 'https://summerside.vercel.app/api/TextConversion.py?text=' + encodeURIComponent( val ) + ( ToWhere == 0 ? '&from=MorseCode' : '' ) + ( ToWhere == 1 ? '&to=MorseCode' : '' );
       }
       async function Paste( ToWhere ) {
         var a = await navigator.clipboard.readText();

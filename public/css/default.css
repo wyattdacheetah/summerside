@@ -6,8 +6,19 @@ html, body {
     color: white;
 }
 
-h1, h2, h3, h4, p, b, i {
+h1, h2, h3, h4, p, b, i, span {
     color: white
+}
+
+.btn.btn-primary {
+    background-color: #9753ff;
+    border: 0;
+}
+.btn.btn-primary:hover {
+    background-color: #7646bd;
+}
+.btn.btn-primary:active {
+    background-color: #4900b7;
 }
 
 .divider {
@@ -33,14 +44,11 @@ h1, h2, h3, h4, p, b, i {
     padding: 2rem 3rem 2rem 2rem;
     height: 250px;
 }
+.box-shadow {
+    box-shadow: 2px 2px 5px rgba(0,0,0,1);
+}
 a.btn.btn-primary.mt-3 {
     text-shadow: none;
-}
-
-button.btn-dflt, a.btn-dflt {
-    background-color: #009dff;
-    color: white;
-    font-weight: bold;
 }
 
 textarea {
@@ -50,7 +58,7 @@ textarea {
     color: white;
     background-color: inherit;
     padding: 5px;
-    border: 1px solid #009dff;
+    border: 1px solid #4900b7;
 }
 
 .no-border-top {
@@ -61,11 +69,23 @@ textarea {
 
 .hovering.bg-tc {
     background-image: url( '/img/ToolBG.png' );
-    background-position: center bottom;
+    background-position: center center;
     background-size: cover;
 }
 .hovering.bg-dabg {
     background-image: url( '/img/AppBG.png' );
     background-position: center center;
     background-size: cover;
+}
+
+pre {
+    color: white;
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+    overflow-x: scroll;
+}
+
+.violet {
+    color: #4900b7;
 }

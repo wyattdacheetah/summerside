@@ -3,7 +3,7 @@ from utils import ParseUrl, EndResponse
 import json
 
 def HandleConversion( self, Thing ):
-    SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'text' ]
+    SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'Base64', 'text' ]
 
     From = 'text'
     To = 'text'
@@ -62,6 +62,7 @@ def ConvertTo( What, Method, extras = '' ):
         'HexCode': ToHexCode,
         'ASCIICode': ToASCIICode,
         'MorseCode': ToMorseCode
+        # TODO: Implement Base64 and CaseConvert
     }[ Method ]( What )
 
 def ConvertFrom( What, Method ):
@@ -96,6 +97,7 @@ def ConvertFrom( What, Method ):
         'HexCode': FromHexCode,
         'ASCIICode': FromASCIICode,
         'MorseCode': FromMorseCode
+        # TODO: Implement Base64 and CaseConvert
     }[ Method ]( What )
 
 

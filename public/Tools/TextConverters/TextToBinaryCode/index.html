@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Text To Binary Code - A Kewl Website!</title>
-    <meta name="title" content="Text To Binary Code - A Kewl Website!">
+    <title>Text To Binary Code - Summer Side</title>
+    <meta name="title" content="Text To Binary Code - Summer Side">
 
 		<meta name="google-site-verification" content="A43kDjJP5c9jqqpTS5nNFQKn2WMdip-NiCGDoA2vjI0" />
 		<meta name="viewport" content="width=device-width" />
@@ -14,12 +14,12 @@
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
-		<meta property="og:title" content="Text To Binary Code - A Kewl Website!" />
+		<meta property="og:title" content="Text To Binary Code - Summer Side" />
 		<meta property="og:description" content="Convert your Text To Binary Code and back using this fast tool." />
 		
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="127.0.0.1/Tools/TextConverters/TextToMorseCode/" />
-		<meta property="twitter:title" content="Text To Binary Code - A Kewl Website!" />
+		<meta property="twitter:title" content="Text To Binary Code - Summer Side" />
 		<meta property="twitter:description" content="Convert your Text To Binary Code and back using this fast tool." />
 		
 		<link rel="stylesheet" href="/FontAwesome6.4/css/all.css" />
@@ -57,16 +57,16 @@
             <h2 class="text-center pb-3">Text</h2>
             <textarea class="w-100" id="TextToConvert" placeholder="Text Here" rows="5" onpaste="Update(this.value,1)" onkeyup="Update(this.value,1)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(0)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(0)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert.value)">Copy</button>
             </div>
           </div>
           <div class="col">
             <h2 class="text-center pb-3">Binary Code</h2>
             <textarea class="w-100" id="TextToConvert2" placeholder="Binary Code Here" rows="5" onpaste="Update(this.value,0)" onkeyup="Update(this.value,0)"></textarea>
             <div class="btn-group display-inline-block w-100" role="group">
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Paste(1)">Paste</button>
-              <button type="button" class="btn btn-dflt no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Paste(1)">Paste</button>
+              <button type="button" class="btn btn-primary no-border-top" onclick="Copy(TextToConvert2.value)">Copy</button>
             </div>
           </div>
         </div>
@@ -79,6 +79,10 @@
         <h2 class="pb-4 border-bottom">What's Binary Code?</h2>
         <p>A binary code represents text, computer processor instructions, or any other data using a two-symbol system. The two-symbol system used is often "0" and "1" from the binary number system. The binary code assigns a pattern of binary digits, also known as bits, to each character, instruction, etc. For example, a binary string of eight bits (which is also called a byte) can represent any of 256 possible values and can, therefore, represent a wide variety of different items.</p>
         <i class="mt-5">Source: <a href="https://en.wikipedia.org/wiki/Binary_code">Wikipedia</a></i>
+      
+        <h2 class="pb-4 mt-5 border-bottom">API Equivalent</h2>
+        <pre><b class="violet">GET</b> <span id="APIEquiv">https://summerside.vercel.app/api/TextConversion?text=&to=</span></pre>
+        <p><b>Info!</b> if you want to keep your conversion "hidden" or if you need to convert some large text, you can send a <b>POST</b> request instead!!</p>
       </div>
     </main>
     <div class="divider"></div>
@@ -119,7 +123,7 @@
         try {
           OutputElement.value = ( ToWhere === 1 ? ConvertTextToBinary : ConvertBinaryToText )( Input, Input.trim().indexOf( " " ) == -1 );
           Info.innerHTML = "";
-          //lst = IsText;
+          APIEquiv.innerHTML = 'https://summerside.vercel.app/api/TextConversion.py?text=' + encodeURIComponent( Input ) + ( ToWhere == 0 ? '&from=BinaryCode' : '' ) + ( ToWhere == 1 ? '&to=BinaryCode' : '' );
         } catch( e ) {
           console.error( e );
           Info.innerHTML = "Can't convert!";
