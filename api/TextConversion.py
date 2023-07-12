@@ -1,8 +1,31 @@
 from http.server import BaseHTTPRequestHandler
-from utils import ParseUrl, EndResponse
 import json
 import base64
 
+from urllib.parse import urlparse, parse_qs
+
+def ParseUrl( url ):
+    parsed_url = urlparse( url )
+    query_params = parse_qs( parsed_url.query )
+
+    parameters = {}
+    for key, value in query_params.items():
+        if len(value) == 1:
+            parameters[ key ] = value[0]
+        else:
+            parameters[ key ] = value
+
+    return parameters
+
+def EndResponse( thingy, Response, ResponseCode: int = 200, MimeType: str = 'text/plain' ):
+    if isinstance( Response, str ):
+        Response = Response.encode()
+        
+    thingy.send_response( ResponseCode )
+    thingy.send_header( 'Content-Type',  MimeType )
+    thingy.end_headers()
+    thingy.wfile.write( Response )
+    
 def HandleConversion( self, Thing ):
     SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'Base64', 'text' ]
 
