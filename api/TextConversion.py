@@ -25,6 +25,34 @@ def EndResponse( thingy, Response, ResponseCode: int = 200, MimeType: str = 'tex
     thingy.end_headers()
     thingy.wfile.write( Response )
 
+def HandleEmbed( Out, Text, From, To ):
+    Out = Out.replace( '<', '' ).replace( '"', '\\"' )
+    return f'''<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="charset" content="utf-8" />
+    <title>Conversion Output From {From} to {To}</title>
+    <meta name="title" content="Conversion Output From {From} to {To}">
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="description" content="{Out}" />
+    <meta name="author" content="Summer (Wyatt) Da Cheetah" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://summerside.vercel.app/" />
+    <meta property="og:title" content="Conversion Output From {From} to {To}" />
+    <meta property="og:description" content="{Out}" />
+    
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://summerside.vercel.app/api/TextConversion.py?text={Text}&from={From}&to={To}" />
+    <meta property="twitter:title" content="Conversion Output From {From} to {To}" />
+    <meta property="twitter:description" content="{Out}" />
+  </head>
+  <body>{Out}</body>
+</html>
+'''
+
+
 def HandleConversion( self, Thing ):
     SupportedTools = [ 'BinaryCode', 'MorseCode', 'Case', 'ASCIICode', 'HexCode', 'Base64', 'text' ]
 
@@ -47,15 +75,23 @@ def HandleConversion( self, Thing ):
             return EndResponse( self, f'Tool "{Thing[ "to" ]}" not found'.encode(), 404 )
         else:
             To = Thing[ 'to' ]
-    
+
+    Output = None
+
     if From == To:
-       EndResponse( self, ToConvert )
+       Output = ToConvert
     elif From != 'text' and To != 'text':
-        EndResponse( self, ConvertTo( ConvertFrom( ToConvert, From ), To ) )
+        Output = ConvertTo( ConvertFrom( ToConvert, From ), To )
     elif From != 'text':
-        EndResponse( self, ConvertFrom( ToConvert, From ) )
+        Output = ConvertFrom( ToConvert, From )
     else:
-        EndResponse( self, ConvertTo( ToConvert, To ) )
+        Output = ConvertTo( ToConvert, To )
+    
+    if 'embed' in Thing:
+        if Thing[ 'embed' ]:
+            Output = HandleEmbed( Output, ToConvert, From, To )
+    
+    EndResponse( self, Output, MimeType='text/html' if 'embed' in Thing else 'text/plain' )
     
 def ConvertTo( What, Method, extras = '' ):
     def ToBinary( ToConvert, extras = extras ):
