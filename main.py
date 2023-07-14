@@ -78,6 +78,11 @@ class HttpHandler( BaseHTTPRequestHandler ):
         else:
             EndResponse( self, 'no.', 403 )
 
+try:
+    print( f'IP: {get_ip_address()}')
+except:
+    print( 'IP: 127.0.0.1' )
+
 with socketserver.TCPServer(("", PORT), HttpHandler) as httpd:
-    print("Server running on port", PORT, 'on ip', get_ip_address() )
+    print( "Server running on port", PORT )
     httpd.serve_forever()
