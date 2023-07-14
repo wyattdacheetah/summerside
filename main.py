@@ -3,8 +3,22 @@ import socketserver
 import importlib.util
 from utils import GetContentType, EndResponse
 from os.path import isdir, exists
+import socket
 
 PORT = 80
+
+def get_ip_address():
+    # Create a socket to get the IP address
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.connect(('8.8.8.8', 80))  # Connecting to a known external server
+
+    # Get the IP address
+    ip_address = sock.getsockname()[0]
+
+    # Close the socket
+    sock.close()
+
+    return ip_address
 
 def HandleAPI( self, filename ):
     try:
@@ -41,10 +55,11 @@ class HttpHandler( BaseHTTPRequestHandler ):
                     self.end_headers()
                     self.wfile.write( file.read() )
             else:
-                if not exists( url + 'index.html' ):
+                url_index = ( url + '/index.html' ).replace( '//', '/' )
+                if not exists( url_index ):
                     EndResponse( self, b'no.', 403 )
                 else:
-                    with open( url + 'index.html', 'rb' ) as file:
+                    with open( url_index, 'rb' ) as file:
                         self.send_response( 200 )
                         self.send_header('Content-type', 'text/html' )
                         self.end_headers()
@@ -64,5 +79,5 @@ class HttpHandler( BaseHTTPRequestHandler ):
             EndResponse( self, 'no.', 403 )
 
 with socketserver.TCPServer(("", PORT), HttpHandler) as httpd:
-    print("Server running on port", PORT)
+    print("Server running on port", PORT, 'on ip', get_ip_address() )
     httpd.serve_forever()

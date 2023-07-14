@@ -1,6 +1,6 @@
 window.onload = async () => {
   var ToWrite1 = [
-    'Hi! Welcome to the Kewl Website I made!',
+    'Hi! Welcome to the Kewl Website I made! (You can scroll down)',
     'What are the odds of you visiting this site??',
     'Thanks for visiting this website!',
     'Go ahead, choose a tool and use it right away!',

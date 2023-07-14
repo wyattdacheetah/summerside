@@ -21,6 +21,10 @@ h1, h2, h3, h4, p, b, i, span {
     background-color: #4900b7;
 }
 
+.bg-violet {
+    background-color: #4900b7;
+}
+
 .divider {
     min-height: 3rem;
     max-height: 40vh;
@@ -38,6 +42,12 @@ h1, h2, h3, h4, p, b, i, span {
 .Section {
     padding: 3rem;
 }
+@media (max-width:720px) {
+    .Section {
+        padding: 5px;
+    }
+}
+
 .hovering {
     box-shadow: 2px 2px 5px rgba(0,0,0,.5);
     border-radius: 5px;
@@ -94,4 +104,8 @@ footer {
 
 .violet {
     color: #4900b7;
+}
+
+li.nav-item>a {
+    color: white!important;
 }
