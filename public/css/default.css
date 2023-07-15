@@ -78,12 +78,12 @@ textarea {
 }
 
 .hovering.bg-tc {
-    background-image: url( '/img/ToolBG.png' );
+    background-image: url( 'https://cdn.glitch.global/07de974e-cea9-42ec-9d9c-fb5d90988eb8/ToolBG.png?v=1689393180783' );
     background-position: center center;
     background-size: cover;
 }
 .hovering.bg-dabg {
-    background-image: url( '/img/AppBG.png' );
+    background-image: url( 'https://cdn.glitch.global/07de974e-cea9-42ec-9d9c-fb5d90988eb8/AppBG.png?v=1689393169905' );
     background-position: center center;
     background-size: cover;
 }
@@ -97,7 +97,7 @@ pre {
 }
 
 footer {
-    background-image: url( '/img/TopThing.png' );
+    background-image: url( 'https://cdn.glitch.global/07de974e-cea9-42ec-9d9c-fb5d90988eb8/TopThing.png?v=1689393178986' );
     background-position: center center;
     background-size: cover contain;
 }
