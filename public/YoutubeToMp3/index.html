@@ -34,9 +34,9 @@
             </div>
             <div class="divider"></div>
             <div class="Section d-flex justify-content-center">
-                <form action="https://summerside.glitch.me/api/YoutubeDownload" method="GET" style="max-width:600px;width:100%">
+                <form action="https://summerside.glitch.me/api/YoutubeDownload" method="GET" style="max-width:600px;width:100%" id="theform">
                     <div class="form-floating">
-                        <input type="text" placeholder="Youtube Link" class="form-control" id="ytlink" name="video" onpaste="setTimeout('this.parentElement.parentElement.submit()',500)" />
+                        <input type="text" placeholder="Youtube Link" class="form-control" id="ytlink" name="video" onpaste="setTimeout(GoSubmitForm,500)" />
                         <label for="ytlink" class="form-label">Youtube Link</label>
                     </div>
                     <button type="submit" class="form-control btn btn-primary no-border-top">Download as mp3</button>
@@ -59,5 +59,11 @@
                 </ul>
             </footer>
         </main>
+        <script type="text/javascript">
+        function GoSubmitForm()
+        {
+            document.getElementById( 'theform' ).submit();
+        }
+        </script>
     </body>
 </html>
