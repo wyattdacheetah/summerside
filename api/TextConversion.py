@@ -100,7 +100,7 @@ def ConvertTo( What, Method, extras = '' ):
     
     def ToHexCode( ToConvert ):
         HexText = [ format( ord( c ), '02x' ) for c in ToConvert ]
-        return ''.join( HexText )
+        return ' '.join( HexText )
     
     def ToASCIICode( ToConvert ):
         ASCIIText = [ str( ord( c ) ) for c in ToConvert ]
@@ -136,12 +136,12 @@ def ConvertFrom( What, Method ):
     
     def FromHexCode( ToConvert ):
         HexText = ToConvert.replace( " ", "" )
-        Text = "".join( chr( int(HexText[ i : i + 2 ], 16 ) ) for i in range( 0, len( HexText ), 2 ) )
+        Text = " ".join( chr( int(HexText[ i : i + 2 ], 16 ) ) for i in range( 0, len( HexText ), 2 ) )
         return Text
     
     def FromASCIICode( ToConvert ):
         ASCIIText = ToConvert.split( " " )
-        Text = "".join( chr( int( c ) ) for c in ASCIIText )
+        Text = " ".join( chr( int( c ) ) for c in ASCIIText )
         return Text
     
     def FromMorseCode( ToConvert ):
@@ -152,7 +152,7 @@ def ConvertFrom( What, Method ):
             '-.--': 'Y', '--..': 'Z'
         }
         MorseText = ToConvert.split(" ")
-        Text = "".join( MorseCodeDict.get( morse, "" ) for morse in MorseText )
+        Text = " ".join( MorseCodeDict.get( morse, "" ) for morse in MorseText )
         return Text
 
     def FromBase64( ToConvert ):
