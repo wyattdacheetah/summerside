@@ -96,7 +96,7 @@ def HandleConversion( self, Thing ):
 def ConvertTo( What, Method, extras = '' ):
     def ToBinary( ToConvert, extras = extras ):
         BinaryText = [ format( ord( c ), '08b' ) for c in ToConvert ]
-        return ' '.join( BinaryText ) if extras else ''.join( BinaryText )
+        return ''.join( BinaryText ) if extras else ''.join( BinaryText )
     
     def ToHexCode( ToConvert ):
         HexText = [ format( ord( c ), '02x' ) for c in ToConvert ]
