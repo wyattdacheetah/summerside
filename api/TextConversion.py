@@ -35,20 +35,20 @@ def HandleEmbed( Out, Text, From, To ):
     <meta name="title" content="Conversion Output From {From} to {To}">
     <meta name="viewport" content="width=device-width" />
 
-    <meta name="description" content="{Out}" />
+    <meta name="description" content="Input: {Text}\\nOutput: {Out}" />
     <meta name="author" content="Summer (Wyatt) Da Cheetah" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://summerside.vercel.app/" />
     <meta property="og:title" content="Conversion Output From {From} to {To}" />
-    <meta property="og:description" content="{Out}" />
+    <meta property="og:description" content="Input: {Text}\\nOutput: {Out}" />
     
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:card" content="summary" />
     <meta property="twitter:url" content="https://summerside.vercel.app/api/TextConversion.py?text={Text}&from={From}&to={To}" />
     <meta property="twitter:title" content="Conversion Output From {From} to {To}" />
-    <meta property="twitter:description" content="{Out}" />
+    <meta property="twitter:description" content="Input: {Text}\\nOutput: {Out}" />
   </head>
-  <body style="font-family:sans-serif">Input: {Text}<br/>Output: {Out}</body>
+  <body style="font-family:sans-serif;font-weight:bold">Input: {Text}<br/>Output: {Out}</body>
 </html>
 '''
 
