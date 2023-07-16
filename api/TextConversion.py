@@ -48,7 +48,7 @@ def HandleEmbed( Out, Text, From, To ):
     <meta property="twitter:title" content="Conversion Output From {From} to {To}" />
     <meta property="twitter:description" content="{Out}" />
   </head>
-  <body>{Out}</body>
+  <body style="font-family:sans-serif">Input: {Text}<br/>Output: {Out}</body>
 </html>
 '''
 
