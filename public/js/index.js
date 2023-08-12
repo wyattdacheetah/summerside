@@ -5,8 +5,8 @@ window.onload = async () => {
     'Thanks for visiting this website!',
     'Go ahead, choose a tool and use it right away!',
     'Did you know that this changes?? I think so.',
-    'Hai lo!! Wassup??',
-    'Wanna be friends?? Contact me on my discord!!'
+    'Hai LOL!! Wassup??',
+    'Wanna be friends?? Contact me on my discord!! (wyattdacheetah)'
   ];
   let ToWrite;
   num = 0;
