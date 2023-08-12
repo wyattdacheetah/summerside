@@ -66,12 +66,13 @@
                     'width' : 728,
                     'params' : {}
                 };
-                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/aa05264c8070e8bba85d53b110f237b3/invoke.js"></scr' + 'ipt>');
+                if ( location.href.startsWith( "http://127.0.0.1/" ) )
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/aa05264c8070e8bba85d53b110f237b3/invoke.js"></scr' + 'ipt>');
             </script></div>
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 px-3">
                 <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 <span title="My Name">Summer (Wyatt) Da Cheetah</span></p>
                 <ul class="nav justify-content-end">
-                    <li class="nav-item"><a href="https://instagram.com/wy4tt_v.ch33tah_/" target="_blank" class="nav-link px-2 text-body-secondary">Instagram</a></li>
+                    <li class="nav-item"><a href="https://instagram.com/wyattdacheetah/" target="_blank" class="nav-link px-2 text-body-secondary">Instagram</a></li>
                     <li class="nav-item"><a href="https://youtube.com/@WyattDaCheetah/" target="_blank" class="nav-link px-2 text-body-secondary">Youtube</a></li>
                     <li class="nav-item"><a href="https://github.com/wyattdacheetah/" target="_blank" class="nav-link px-2 text-body-secondary">Github</a></li>
                 </ul>

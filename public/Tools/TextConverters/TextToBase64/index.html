@@ -81,7 +81,8 @@
           'width' : 728,
           'params' : {}
         };
-        document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/aa05264c8070e8bba85d53b110f237b3/invoke.js"></scr' + 'ipt>');
+        if ( location.href.startsWith( "http://127.0.0.1/" ) )
+          document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitabledisplaynetwork.com/aa05264c8070e8bba85d53b110f237b3/invoke.js"></scr' + 'ipt>');
       </script></div>
       <div class="Section">
         <h2 class="pb-4 border-bottom">What's Base64?</h2>
